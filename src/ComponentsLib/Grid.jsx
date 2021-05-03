@@ -6,12 +6,12 @@ export const GridCore = styled.div`
   display: grid;
   height: ${props => props.heightDef};
 
-  grid-template-columns: ${props => props.gtcDef || "1fr repeat(12, minmax(auto, 6.8rem)) 1fr"};
+  grid-template-columns: ${props => props.gtcDef || "1fr repeat(12, minmax(6.8rem, 6.8rem)) 1fr"};
   //gtc=>grid-template-columns, gtc=null => 12 column grid with autoMargin
   column-gap: ${props => props.columnGapDef || "3rem"};
   row-gap: ${props => props.rowGapDef || "0rem"};
   grid-template-rows: ${props => props.gtrDef || "max-content"};
-  background: ${props => props.colorDef};
+  background: ${props => props.bgDef};
   @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
     grid-template-columns: ${props => props.gtcTab || "1rem repeat(6, minmax(auto, 1fr)) 1rem"};
     column-gap: ${props => props.columnGapTab || "1rem"};
@@ -28,12 +28,11 @@ export const GridCore = styled.div`
 //!!
 export const GridFullWidthSection = styled(GridCore)`
   grid-column: ${props => props.gcDef || "1/span 14"};
-  grid-template-columns: 1fr repeat(12, minmax(auto, 6.8rem)) 1fr;
-  background: ${props => props.colorDef};
+  grid-template-columns: 1fr repeat(12, minmax(6.8rem, 6.8rem)) 1fr;
+  background: ${props => props.bgDef};
   @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
     grid-column: ${props => props.gcTab || '1/span 8'};
     grid-template-columns: ${props => props.gtcTab || "1rem repeat(6, minmax(auto, 1fr)) 1rem"};
-    background: coral;
   }
   @media only screen and (max-width: ${props => props.breakMobileL || breakpointsMaxWidth.mobileL}) {
     grid-column: ${props => props.gcML || '1/span 5'};
@@ -47,7 +46,8 @@ export const GridFullWidthSection = styled(GridCore)`
 //
 export const GridContent = styled(GridCore)`
   grid-column: 2/span 12;
-  grid-template-columns: ${props => props.gtcDef || "repeat(12, minmax(auto, 6.8rem))"};
+  grid-template-columns: ${props => props.gtcDef || "repeat(12, minmax(6.8rem, 6.8rem))"};
+  background: ${props=>props.bgDef};
   @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
     grid-column: ${props => props.gcTab || "2/span 6"};
     grid-template-columns: ${props => props.gtcTab || "repeat(6, minmax(auto, 1fr))"};
@@ -65,7 +65,7 @@ export const GridContent = styled(GridCore)`
 export const GridCell = styled.div`
   height: ${props => props.heightDef};
   grid-column: ${props => props.gcDef || "auto/auto"};
-  background: ${props => props.colorDef};
+  background: ${props => props.bgDef};
   @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
     background: ${props => props.colorTab};
     grid-column: ${props => props.gcTab || "auto/auto"};

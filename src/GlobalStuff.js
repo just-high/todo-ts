@@ -94,6 +94,7 @@ export const colors = {
     primary: "rgba(242, 122, 84, 1)",
     secondary:"rgba(161, 84, 242, 1)",
     tertiary:"rgba(111, 207, 151, 1)",
+    darkV: "rgba(42, 48, 54, 1)",
     dark: "rgba(48, 54, 61, 1)",
     grey1: "rgba(60, 68, 76, 1)",
     grey2:"rgba(116, 125, 136, 1)",

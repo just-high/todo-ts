@@ -12,6 +12,7 @@ export const Typography = styled.div`
   letter-spacing: ${(props) => props.lSpacing || "0rem"};
   text-align: ${(props) => props.tAling || "center"};
   color: ${(props) => props.color || "black"};
+  margin: ${props=>props.margin||'0rem'};
 `;
 
 export const H1 = (props) => {
@@ -25,6 +26,7 @@ export const H1 = (props) => {
             lSpacing={props.lSpacing || "0rem"}
             tAling={props.tAling || "left"}
             color={props.color || "red"}
+            {...props}
         >
             {props.children}
         </Typography>
@@ -42,6 +44,7 @@ export const H2 = (props) => {
                     lSpacing={props.lSpacing || "0rem"}
                     tAling={props.tAling || "left"}
                     color={props.color || "red"}
+                    {...props}
         >
             {props.children}
         </Typography>
@@ -59,6 +62,7 @@ export const H3 = (props) => {
             lSpacing={props.lSpacing || "0rem"}
             tAling={props.tAling || "left"}
             color={props.color || "red"}
+            {...props}
         >
             {props.children}
         </Typography>
@@ -75,6 +79,7 @@ export const H4 = (props) => {
             lSpacing={props.lSpacing || " 0rem"}
             tAling={props.tAling || " left"}
             color={props.color || "red"}
+            {...props}
         >
             {props.children}
         </Typography>
@@ -92,6 +97,7 @@ export const H5 = (props) => {
             lSpacing={props.lSpacing || " 0rem"}
             tAling={props.tAling || " left"}
             color={props.color || "Blue"}
+            {...props}
         >
             {props.children}
         </Typography>
@@ -109,6 +115,7 @@ export const P = (props) => {
             lSpacing={props.lSpacing || "0rem"}
             tAling={props.tAling || "left"}
             color={props.color || "red"}
+            {...props}
         >
             {props.children}
         </Typography>
@@ -126,6 +133,7 @@ export const H6 = (props) => {
             lSpacing={props.lSpacing || "0rem"}
             tAling={props.tAling || "left"}
             color={props.color || "red"}
+            {...props}
         >
             {props.children}
         </Typography>
