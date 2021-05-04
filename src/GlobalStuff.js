@@ -1,4 +1,5 @@
 import {createGlobalStyle} from "styled-components";
+import breakpointsMaxWidth from "./ComponentsLib/breakpoints";
 export const GlobalStyle = createGlobalStyle`
   * {
     padding: 0;
@@ -29,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-size: 100%;
     line-height: 1;
-    font-size: 14px;
+    font-size: 10px;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -71,5 +72,33 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-size: inherit;
     font-weight: 400;
+  } 
+  @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
+    html {
+      font-size: 9px;
+    }
+  }
+  @media only screen and (max-width: ${props => props.breakMobileL || breakpointsMaxWidth.mobileL}) {
+    html {
+      font-size: 8px;
+    }
+  }
+  @media only screen and (max-width: ${props => props.breakMobileS || breakpointsMaxWidth.mobileS}) {
+    html {
+      font-size: 7px;
+    }
   }
 `
+
+export const colors = {
+    primary: "rgba(242, 122, 84, 1)",
+    secondary:"rgba(161, 84, 242, 1)",
+    tertiary:"rgba(111, 207, 151, 1)",
+    dark: "rgba(48, 54, 61, 1)",
+    grey1: "rgba(60, 68, 76, 1)",
+    grey2:"rgba(116, 125, 136, 1)",
+    grey3:"rgba(203, 207, 212, 1)",
+    white: "rgba(255, 255, 255, 1)",
+    whiteMint: "rgba(181, 255, 212, 1)",
+}
+

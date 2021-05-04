@@ -1,60 +1,42 @@
 import ListIcon from '@material-ui/icons/List';
 import {GridFullWidthSection, Grid, GridCell, GridContent, GridCore} from "./ComponentsLib/Grid";
-import {breakpointsMaxWidth} from "./ComponentsLib/breakpoints";
-import styled from "styled-components";
-   let {tablet,mobileL,mobileS}=breakpointsMaxWidth
 
-const Header = () => {
-    return (
-        <div className="header">
-            <ListIcon/>
-        </div>
-    );
-}
-const Body = () => {
-    return (
-        <div className="body">
-        </div>
-    )
-}
-const Menu = () => {
-    return (
-        <div className="menu">
-            <ul>
-                <li>Today</li>
-                <li>WillBe</li>
-                <li>Overdue</li>
-                <li>Done</li>
-            </ul>
-        </div>
-    )
-}
+
+import {useState} from "react";
+import {H1, H2, H3, H4, H5, P, H6} from "./ComponentsLib/Typography";
+import breakpointsMaxWidth from "./ComponentsLib/breakpoints";
+
+let {tablet, mobileL, mobileS} = breakpointsMaxWidth
+
 function App() {
-    console.log(tablet,mobileL,mobileS)
-    return (<>
-        <GridCore color="lightcoral" className="Grid">
-            <GridFullWidthSection className='section'><GridContent className='content'>
-                <GridCell className='cell' colordef="green" >heeee</GridCell>
-                <GridCell colorDef='red' colorTab='blue'>heeee</GridCell>
-                <GridCell colorDef='yellow' colorTab='lightblue' >heeee</GridCell>
-                <GridCell colorDef='lightcoral' colorTab='green'>heeee</GridCell>
-                <GridCell colorDef='pink' colorTab='red'>heeee</GridCell>
-                <GridCell colorDef='red' colorTab='blue'>heeee</GridCell>
-                <GridCell colorDef='yellow' colorTab='lightblue'>heeee</GridCell>
-                <GridCell colorDef='lightcoral' colorTab='green'>heeee</GridCell>
-                <GridCell colorDef='pink' colorTab='red'>heeee</GridCell>
-                <GridCell colorDef='red' colorTab='blue'>heeee</GridCell>
-                <GridCell colorDef='yellow' colorTab='lightblue'>heeee</GridCell>
-                <GridCell colorDef='lightcoral' colorTab='green'>heeee</GridCell>
-                <GridCell colorDef='pink' colorTab='red'>heeee</GridCell>
-                <GridCell colorDef='red' colorTab='blue'>heeee</GridCell>
 
-                <GridCell colorDef='red' colorTab='blue'>heeee</GridCell>
-                <GridCell colorDef='yellow' colorTab='lightblue'>heeee</GridCell>
-                <GridCell colorDef='lightcoral' colorTab='green'>heeee</GridCell></GridContent></GridFullWidthSection>
-            </GridCore>
-         </>
-    );
+    return <GridCore heightDef="100vh">
+        <GridFullWidthSection>
+            <GridContent colorDef="purple" heightDef="68px">
+                <GridCell>
+                    <ListIcon
+                        onClick={onClick}/>
+                </GridCell>
+            </GridContent>
+        </GridFullWidthSection>
+        <GridFullWidthSection>
+            <GridContent colorDef='green'>
+                <GridCell colorDef='green' heightDef="calc(100vh - 68px)">
+                    <H1 color="blue">H1 text</H1>
+                    <H2>H1 text</H2>
+                    <H3>h3tex</H3>
+                    <H4>h4 text</H4>
+                    <H5>h5 text</H5>
+                    <P> Ptext </P>
+                    <H6> h6 Text</H6></GridCell>
+                <GridCell colorDef='yellow' gcDef="5/span 8" heightDef="calc(100vh - 68px)">
+                    <button>push</button>
+                </GridCell>
+            </GridContent>
+        </GridFullWidthSection>
+    </GridCore>
+
+
 }
 
 export default App;
