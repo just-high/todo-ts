@@ -24,7 +24,7 @@ position: relative;
   left: -39.2rem;
   width:  39.2rem;
   height: calc(100vh - 3.2rem);
-  background: ${colors.darkV};
+  background: ${colors.primary};
   transition: left 0.3s;
   ${props => props.active && css`
     width: 39.2rem;
@@ -34,7 +34,7 @@ position: relative;
 
 
 const MenuApp = () => {
-    const toggleMenuOpen = useSelector(state => state.toggleMenuOpen)
+    const toggleMenuOpen = useSelector(state => state.layout.toggleMenuOpen)
     console.log(toggleMenuOpen)
     return (<>
             <MenuAppFixContent className='dwadawdawdawdawdwadwa'>
