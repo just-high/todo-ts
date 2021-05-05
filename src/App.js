@@ -15,10 +15,11 @@ function App() {
     return (
         <>
             <GridCore heightDef="100vh">
-                <NavApp/>
-                <BodyApp/>
+                    <NavApp/>
+                    <BodyApp/>
+                    <MenuApp/>
             </GridCore>
-            <MenuApp/>
+
         </>
     )
 
