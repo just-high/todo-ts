@@ -8,22 +8,28 @@ import breakpointsMaxWidth from "./ComponentsLib/breakpoints";
 import NavApp from "./Components/NavApp";
 import {BodyApp} from "./Components/BodyApp";
 import MenuApp from "./Components/MenuApp";
-
+import {Flex} from "./ComponentsLib/Flex";
+import styled from "styled-components";
 let {tablet, mobileL, mobileS} = breakpointsMaxWidth
 
+const AppGridContent = styled(GridContent)`
+`
 function App() {
     return (
-        <>
-            <GridCore heightDef="100vh">
-                    <NavApp/>
-                    <BodyApp/>
-                    <MenuApp/>
-            </GridCore>
+        <Flex justifyContent="center">
+            <AppGridContent>
+                <NavApp/>
+                <BodyApp/>
 
-        </>
+            </AppGridContent>
+        </Flex>
     )
 
 }
 
 export default App;
-
+// <GridCore heightDef="100vh">
+//     <NavApp/>
+//     <BodyApp/>
+//     <MenuApp/>
+// </GridCore>

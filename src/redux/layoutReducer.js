@@ -1,5 +1,6 @@
 let initialState = {
     toggleMenuOpen: true,
+    sizeGrid: 1
 }
 export const layoutReducer = (state=initialState, action)=>{
     switch (action.type) {

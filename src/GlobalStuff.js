@@ -28,7 +28,6 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     width: 100%;
-    font-size: 100%;
     line-height: 1;
     font-size: 10px;
     -ms-text-size-adjust: 100%;
@@ -75,17 +74,14 @@ export const GlobalStyle = createGlobalStyle`
   } 
   @media only screen and (max-width: ${props => props.breakTablet || breakpointsMaxWidth.tablet}) {
     html {
-      font-size: 9px;
     }
   }
   @media only screen and (max-width: ${props => props.breakMobileL || breakpointsMaxWidth.mobileL}) {
     html {
-      font-size: 8px;
     }
   }
   @media only screen and (max-width: ${props => props.breakMobileS || breakpointsMaxWidth.mobileS}) {
     html {
-      font-size: 7px;
     }
   }
 `

@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const Flex = styled.div`
+const FlexCore = styled.div`
   display: flex;
-  justify-content: ${props => props.justifyContent || "center"};
-  justify-items: ${props => props.justifyItems||"center"};
-  justify-self: ${props=>props.self||"center"};
-  align-content: ${props => props.alignContent || "center"};
-  align-items: ${props=>props.alignItems|| "center"};
-  align-self: ${props=>props.alignSelf||"center"};
+  flex-direction: ${props=>props.flexDirection};
+  justify-content: ${props => props.justifyContent };
+  justify-items: ${props => props.justifyItems};
+  justify-self: ${props=>props.self};
+  align-content: ${props => props.alignContent};
+  align-items: ${props=>props.alignItems};
+  align-self: ${props=>props.alignSelf};
+  margin: ${props=>props.margin};
+  padding:${props=>props.padding};
+  height: ${props=>props.height};
+  width: ${props=>props.width};
 `
+
+export const Flex =(props)=>{return <FlexCore {...props}>{props.children}</FlexCore>}

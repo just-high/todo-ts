@@ -10,6 +10,11 @@ display: flex;
 justify-content: center;
 align-content: center;`
 
+const NavGridContent = styled(GridContent)`
+  z-index: 999;
+  box-shadow: 5px 5px 7px -3px rgba(0, 0, 0, 0.6);
+`
+
 const NavApp = (props) => {
     const dispatch = useDispatch()
     const toggleMenuOpen = useSelector(state => state.toggleMenuOpen)
@@ -18,8 +23,7 @@ const NavApp = (props) => {
         console.log(toggleMenuOpen)
     }
     return (
-        <GridFullWidthSection>
-            <GridContent bgDef={colors.grey1} heightDef="3.2rem">
+            <NavGridContent bgDef={colors.grey1} heightDef="3.2rem">
                 <GridCell>
                     <Center>
                         <ListIcon
@@ -27,8 +31,7 @@ const NavApp = (props) => {
                             onClick={onClick}/>
                     </Center>
                 </GridCell>
-            </GridContent>
-        </GridFullWidthSection>
+            </NavGridContent>
     )
 }
 
