@@ -94,15 +94,29 @@ const CheckboxWrapper = styled.div`
   height: 4rem;
   margin-right: 2rem;`
 
-const CheckboxInput = styled.input`
+const CheckboxRounded = styled.div`
+  justify-content: center;
+  align-items: center;
   width: 4rem;
   height: 4rem;
-  border-radius: 4rem;
+  border-radius: 50%;
+  border: 2px solid ${colors.primary};
 `
+const CheckboxRoundedFill = styled.div`
+  background: green;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%`
+
+
 const Checkbox = () => {
     return (
         <CheckboxWrapper>
-            <CheckboxInput type='checkbox'/>
+            <CheckboxRounded>
+                <CheckboxRoundedFill>
+
+                </CheckboxRoundedFill>
+            </CheckboxRounded>
         </CheckboxWrapper>
     )
 }
@@ -110,11 +124,11 @@ const Checkbox = () => {
 
 export const Card = (props) => {
     let cardsData = {
-        title: "first",
-        body: "Сделать тудулист",
+        title: "Купить хлеб",
+        body: "Кончился хлеб, нужен к вечеру",
         priority: 4,
         flag: "active",
-        project: "dwdaw",
+        project: "Домашние дела",
         id: 1,
         category: "today"
     }
@@ -133,7 +147,6 @@ export const Card = (props) => {
                         </Flex>
                         <MainText>
                             <P>{cardsData.body}
-                          
                             </P>
                         </MainText>
                     </Flex>
@@ -144,5 +157,50 @@ export const Card = (props) => {
 }
 
 
+const ImputCardWrapper = styled.div`
+  margin: 1rem 0;
+  position: relative;
+  border: 1px solid ${colors.primary};
+  height: 50px;
+  width: 320px;
+  padding-left: 12px;
+  
 
+  & label {
+    position: relative;
+    top: 50%;
+    left: -50%;
+    pointer-events: none;
+    font-size: 18px;
+    color: #adadad;
 
+    & label:focus
+    & input {
+      color: #000;
+      border: none;
+
+      font-size: 16px;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      bottom: 0px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+`
+
+const ImputTusk= styled.div`
+`
+const ImputProject = styled.div`
+`
+const ImputPriority = styled.div`
+`
+
+//
+// <ImputCardWrapper>
+//     <input id="tusk" name="inputTusk" type="text" placeholder=" "/>
+//     <label className="field-placeholder" htmlFor="tusk">Задача</label>
+// </ImputCardWrapper>

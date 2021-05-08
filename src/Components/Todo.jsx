@@ -6,6 +6,8 @@ import {H1, H2, H3, H4, H5, H6, P} from "../ComponentsLib/Typography";
 import {Flex} from "../ComponentsLib/Flex";
 import {Timer} from "./Timer";
 import {Card, CardMain} from "../ComponentsLib/Card";
+import {ImputCard} from "../ComponentsLib/ImputCard";
+
 
 const ToDoWrapper = styled.div`
   max-height: calc(100vh - 3.6rem);
@@ -19,6 +21,8 @@ export const Todo = (props) => {
     return (
         <ToDoWrapper>
             <CardMain/>
+
+<ImputCard/>
 
          <Cards> <Card/> <Card/><Card/><Card/><Card/><Card/><Card/><Card/></Cards>
         </ToDoWrapper>
