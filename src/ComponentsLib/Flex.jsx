@@ -14,6 +14,7 @@ const FlexCore = styled.div`
   padding:${props=>props.padding};
   height: ${props=>props.height};
   width: ${props=>props.width};
+  flex-grow: ${props=>props.fGrow};
 `
 
 export const Flex =(props)=>{return <FlexCore {...props}>{props.children}</FlexCore>}

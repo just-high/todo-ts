@@ -21,13 +21,15 @@ const BodyAppContent = styled(GridCell)`
 
 
 const MenuAppWrapper = styled.div`
-    width: 0rem;
+  width: 0rem;
   transition: width 0.2s;
   box-shadow: 5px 5px 7px -3px rgba(0, 0, 0, 0.6);
   background: ${colors.darkV};
-  z-index: 999;
+  
   ${props=>props.active && css`
-    width: 30rem;`}
+    width: 30rem;
+    z-index: 9999;`}
+
   
 `
 export const BodyApp = () => {

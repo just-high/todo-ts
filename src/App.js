@@ -12,7 +12,9 @@ import {Flex} from "./ComponentsLib/Flex";
 import styled from "styled-components";
 let {tablet, mobileL, mobileS} = breakpointsMaxWidth
 
+
 const AppGridContent = styled(GridContent)`
+
 `
 function App() {
     return (

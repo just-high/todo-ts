@@ -56,6 +56,7 @@ export const H2 = (props) => {
 export const H3 = (props) => {
   return (
     <Typography
+        as="h3"
       fFamily={props.fFamily || primeFont}
       fSize={props.fSize || "2.4rem"}
       fSyle={props.fSyle || "normal"}
@@ -73,6 +74,7 @@ export const H3 = (props) => {
 export const H4 = (props) => {
   return (
     <Typography
+        as="h4"
       fFamily={props.fFamily || secondFont}
       fSize={props.fSize || " 1.9rem"}
       fSyle={props.fSyle || " normal"}
@@ -91,6 +93,7 @@ export const H4 = (props) => {
 export const H5 = (props) => {
   return (
     <Typography
+        as="h5"
       fFamily={props.fFamily || primeFont}
       fSize={props.fSize || " 1.7rem"}
       fSyle={props.fSyle || " italic"}
@@ -109,6 +112,7 @@ export const H5 = (props) => {
 export const P = (props) => {
   return (
     <Typography
+        as="p"
       fFamily={props.fFamily || secondFont}
       fSize={props.fSize || "1.4rem"}
       fSyle={props.fSyle || "normal"}
@@ -127,6 +131,7 @@ export const P = (props) => {
 export const H6 = (props) => {
   return (
     <Typography
+        as="h6"
       fFamily={props.fFamily || secondFont}
       fSize={props.fSize || "1rem"}
       fSyle={props.fSyle || "normal"}
