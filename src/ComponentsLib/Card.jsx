@@ -123,15 +123,7 @@ const Checkbox = () => {
 
 
 export const Card = (props) => {
-    let cardsData = {
-        title: "Купить хлеб",
-        body: "Кончился хлеб, нужен к вечеру",
-        priority: 4,
-        flag: "active",
-        project: "Домашние дела",
-        id: 1,
-        category: "today"
-    }
+    const cardsData = props.data
     return (
         <GridContent bgDef={colors.darkV} margin='3rem 0'>
             <GridCell gcDef='2/span 10'>

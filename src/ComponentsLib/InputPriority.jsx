@@ -15,20 +15,18 @@ const LabelWrapper = styled.div`
     width: 100%;
     background: #ddd;
     display: flex;
-    padding: 10px 12px;
+    padding: 6px 12px;
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: all 1s ease;
+    box-sizing: border-box;
 
     ${props => props.active && css`
-      background: red;`}
+      background: red;
+      border: 2px solid #8e49e8;`}
     &:hover {
       background: #d5bbf7;
-    }
-
-    &:checked {
-      border: 8px solid #8e49e8;
     }
   }
 `
@@ -54,9 +52,9 @@ const ItemWrapper = styled.div`
 
 export const InputPriority = () => {
     let dispatch = useDispatch()
-    let inputPriority = useSelector(state => state.input.radioPriority)
+    let inputPriority = useSelector(state => state.input.newCard.priority)
     let select = (e) => {
-        dispatch({type: "SELECT_PRIORITY", selected: e.target.id})
+        dispatch({type: "SELECT_PRIORITY", priority: e.target.id})
         console.log(e.target.id)
     }
     return (
@@ -73,18 +71,22 @@ export const InputPriority = () => {
                     </ItemWrapper>
                 </button>
             </LabelWrapper>
-            <LabelWrapper active={inputPriority === "mid"}  id='mid' onClick={select}> <button id='mid'>
-                <ItemWrapper id='mid'>
-                    <span className="circle" id='mid'></span>
-                    <span className="subject" id='mid'>Срочно</span>
-                </ItemWrapper>
-            </button></LabelWrapper>
-            <LabelWrapper active={inputPriority === "low"}  id='low' onClick={select}> <button id='low'>
-                <ItemWrapper id='low'>
-                    <span className="circle" id='low'></span>
-                    <span className="subject" id='low'>Не срочно</span>
-                </ItemWrapper>
-            </button></LabelWrapper>
+            <LabelWrapper active={inputPriority === "mid"} id='mid' onClick={select}>
+                <button id='mid'>
+                    <ItemWrapper id='mid'>
+                        <span className="circle" id='mid'></span>
+                        <span className="subject" id='mid'>Срочно</span>
+                    </ItemWrapper>
+                </button>
+            </LabelWrapper>
+            <LabelWrapper active={inputPriority === "low"} id='low' onClick={select}>
+                <button id='low'>
+                    <ItemWrapper id='low'>
+                        <span className="circle" id='low'></span>
+                        <span className="subject" id='low'>Не срочно</span>
+                    </ItemWrapper>
+                </button>
+            </LabelWrapper>
         </InputPriorityWrapper>
 
     )

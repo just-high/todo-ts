@@ -7,6 +7,7 @@ import {Flex} from "../ComponentsLib/Flex";
 import {Timer} from "./Timer";
 import {Card, CardMain} from "../ComponentsLib/Card";
 import {ImputCard} from "../ComponentsLib/ImputCard";
+import {useSelector} from "react-redux";
 
 
 const ToDoWrapper = styled.div`
@@ -17,14 +18,21 @@ const ToDoWrapper = styled.div`
 const Cards = styled.div`
   max-height: calc(100vh - 11.6rem - 3.6rem);
   overflow: auto;`
+
+
+
+
 export const Todo = (props) => {
+    let today= useSelector(state=>state.today.today)
+    let todayCards = today.map((el) =>
+        <Card data={el}/>);
     return (
         <ToDoWrapper>
             <CardMain/>
 
 <ImputCard/>
 
-         <Cards> <Card/> <Card/><Card/><Card/><Card/><Card/><Card/><Card/></Cards>
+         <Cards> {todayCards} </Cards>
         </ToDoWrapper>
 
     )
