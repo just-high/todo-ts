@@ -10,21 +10,29 @@ import {BodyApp} from "./Components/BodyApp";
 import MenuApp from "./Components/MenuApp";
 import {Flex} from "./ComponentsLib/Flex";
 import styled from "styled-components";
+import {PriorityButton} from "./ComponentsLib/PriorityButton";
+import {PriorityButtons} from "./Components/Input/PriorityButtons";
+import {useSelector} from "react-redux";
+
 let {tablet, mobileL, mobileS} = breakpointsMaxWidth
 
 
 const AppGridContent = styled(GridContent)`
 
 `
-function App() {
-    return (
-        <Flex justifyContent="center">
-            <AppGridContent>
-                <NavApp/>
-                <BodyApp/>
 
-            </AppGridContent>
-        </Flex>
+function App() {
+
+
+    return (<>
+            <Flex justifyContent="center">
+                <AppGridContent>
+                    <NavApp/>
+                    <BodyApp/>
+
+                </AppGridContent>
+            </Flex>
+        </>
     )
 
 }

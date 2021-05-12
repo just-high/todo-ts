@@ -3,7 +3,7 @@ let initialState = {
         {
             title: "ALPHA",
             body: "Кончился хлеб, нужен к вечеру",
-            priority: 4,
+            priority: "high",
             flag: "active",
             project: "Домашние дела",
             id: 1,
@@ -12,7 +12,7 @@ let initialState = {
         {
             title: "Betta",
             body: "Кончился хлеб, нужен к вечеру",
-            priority: 4,
+            priority: "mid",
             flag: "active",
             project: "Домашние дела",
             id: 1,
@@ -30,3 +30,5 @@ export const todayReducer = (state=initialState, action)=>{
             return {...state}
     }
 }
+
+export const addNewCardAction= (newCard)=>{return{type: "ADD_NEW_CARD", newCard: newCard}}

@@ -67,6 +67,10 @@ export const MenuApp = (props) => {
     let randomColors = () => {
         return randomColor({luminosity: 'dark', hue: 'random'})
     }
+    let projectList = useSelector(state=>state.project.projectList)
+    projectList=projectList.map(el=>  (<ProjectName>
+        <H2 as='h3'  color={randomColors} id={el} className="projectNameItem">{el}</H2>
+    </ProjectName>))
     const toggleMenuOpen = useSelector((state) => state.layout.toggleMenuOpen);
     return (
         <>
@@ -87,20 +91,7 @@ export const MenuApp = (props) => {
                             style={{color: colors.grey2}}/></CategoryItem>
                     </CategoryWrapper>
                     <ProjectWrapper>
-                        <ProjectName>
-                            <H2 as='h3'  color={randomColors} className="projectNameItem">TODOLIST</H2>
-                        </ProjectName>
-                        <ProjectName>
-                            <H2 as='h3' color={randomColors} className="projectNameItem">Another project</H2>
-                        </ProjectName>
-                        <ProjectName>
-                            <H2 as='h3' color={randomColors} className="projectNameItem">very
-                                xaasddasdas sad adsqada</H2>
-                        </ProjectName>
-                        <ProjectName>
-                            <H2 as='h3' color={randomColors} className="projectNameItem">very xaasddaw
-                                daw dawd awd awdawdawd awddasdas sad adsqada</H2>
-                        </ProjectName>
+                        {projectList}
                     </ProjectWrapper>
 
                 </MenuBody>

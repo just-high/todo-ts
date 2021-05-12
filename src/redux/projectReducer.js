@@ -1,6 +1,9 @@
 const initialState = {
-project: [
-    {name: "project1", list:[1,5,3]}
+projectList: [
+    "Project1st",
+    "Project2st",
+    "Project3st",
+    "Project4st"
 ]
 }
 

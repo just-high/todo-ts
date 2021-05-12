@@ -124,6 +124,14 @@ const Checkbox = () => {
 
 export const Card = (props) => {
     const cardsData = props.data
+    let color = (cardsData)=>{
+        // eslint-disable-next-line default-case
+        switch (cardsData.priority){
+            case "high": return "indianred"
+            case "mid": return  "sandybrown"
+            case "low": return "palegreen"
+        }
+    }
     return (
         <GridContent bgDef={colors.darkV} margin='3rem 0'>
             <GridCell gcDef='2/span 10'>
@@ -134,7 +142,7 @@ export const Card = (props) => {
                             <Title> <H3Card color={colors.primary}>{cardsData.title}</H3Card> </Title>
                             <Mod alignItems="flex-end">
                                 <Project><H5Card color={colors.secondary}>{cardsData.project}</H5Card></Project>
-                                <Priority><WhatshotTwoTone style={{color: "indianred", fontSize: "3rem"}}/></Priority>
+                                <Priority><WhatshotTwoTone style={{color: color(cardsData), fontSize: "3rem"}}/></Priority>
                             </Mod>
                         </Flex>
                         <MainText>
@@ -175,7 +183,7 @@ const ImputCardWrapper = styled.div`
       display: block;
       box-sizing: border-box;
       width: 100%;
-      bottom: 0px;
+      bottom: 0;
 
       &:focus {
         outline: none;
