@@ -1,5 +1,5 @@
 import React from "react";
-import {GridCell, GridContent, GridCore, GridFullWidthSection} from "../ComponentsLib/Grid";
+import {GridCell, GridContent} from "../ComponentsLib/Grid";
 import ListIcon from "@material-ui/icons/List";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,7 +16,7 @@ const NavGridContent = styled(GridContent)`
   box-shadow: 5px 5px 7px -3px rgba(0, 0, 0, 0.6);
 `
 
-const NavApp = (props) => {
+const NavApp = () => {
     const dispatch = useDispatch()
     const toggleMenuOpen = useSelector(state => state.toggleMenuOpen)
     let onClick = () => {

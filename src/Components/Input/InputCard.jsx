@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 import {InputSelectProject} from "./InputSelectProject";
 
 
-const InputCardWrapper = styled(GridContent)`S
+const InputCardWrapper = styled(GridContent)`
 `
 export const InputCard = () => {
     let onClick = (e) => {

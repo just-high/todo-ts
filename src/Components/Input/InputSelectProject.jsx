@@ -10,13 +10,13 @@ const InputSelectProjectWrapper = styled.div`
 export const InputSelectProject = () => {
 
     let dispatch = useDispatch()
-    let projectList = useSelector(state => state.project.projectList)
+    let projectList = useSelector(state => state.projects.projectList)
     let selectedProject = useSelector(state => state.input.newCard.project)
     //?отправляю данные в стейт при изменении и возвращаю назад
     let onChange = (e) => {
         dispatch(setSelectedProjectAction(e.target.value))
     }
-    let options = projectList.map(el => <option key={el}  value={el}>{el}</option>)
+    let options = projectList.map(el => <option key={el.name}  value={el.name}>{el.name}</option>)
     return (
         <InputSelectProjectWrapper>
             <select name="selectProject" onChange={onChange} value={selectedProject} id="selectProject">

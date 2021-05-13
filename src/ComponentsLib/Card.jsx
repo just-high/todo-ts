@@ -1,8 +1,6 @@
 import React from "react";
-import styled, {css} from "styled-components";
-import {useSelector} from "react-redux";
-import {todayReducer} from "../redux/todayReducer";
-import {H1, H2, H3, H4, H5, H6, P} from "./Typography";
+import styled from "styled-components";
+import {H1, H3, H5, P} from "./Typography";
 import {colors} from "../GlobalStuff";
 import {GridCell, GridContent} from "./Grid";
 import {Flex} from "./Flex";
@@ -10,7 +8,7 @@ import {Timer} from "../Components/Timer";
 import {WhatshotTwoTone} from "@material-ui/icons";
 
 
-export const CardMain = (props) => {
+export const CardMain = () => {
     return (
         <GridContent bgDef={colors.tertiary} margin='3rem 0'>
             <GridCell gcDef='4/span 8'>
@@ -124,12 +122,16 @@ const Checkbox = () => {
 
 export const Card = (props) => {
     const cardsData = props.data
-    let color = (cardsData)=>{
+    let title = cardsData.title[0].toUpperCase() + cardsData.title.slice(1)
+    let color = (cardsData) => {
         // eslint-disable-next-line default-case
-        switch (cardsData.priority){
-            case "high": return "indianred"
-            case "mid": return  "sandybrown"
-            case "low": return "palegreen"
+        switch (cardsData.priority) {
+            case "high":
+                return "indianred"
+            case "mid":
+                return "sandybrown"
+            case "low":
+                return "palegreen"
         }
     }
     return (
@@ -139,10 +141,11 @@ export const Card = (props) => {
                     <Checkbox/>
                     <Flex fGrow="1" flexDirection="column" justifyContent="space-between">
                         <Flex justifyContent="space-between" margin="0.5rem 0" alignItems="flex-end">
-                            <Title> <H3Card color={colors.primary}>{cardsData.title}</H3Card> </Title>
+                            <Title> <H3Card color={colors.primary}>{title}</H3Card> </Title>
                             <Mod alignItems="flex-end">
                                 <Project><H5Card color={colors.secondary}>{cardsData.project}</H5Card></Project>
-                                <Priority><WhatshotTwoTone style={{color: color(cardsData), fontSize: "3rem"}}/></Priority>
+                                <Priority><WhatshotTwoTone
+                                    style={{color: color(cardsData), fontSize: "3rem"}}/></Priority>
                             </Mod>
                         </Flex>
                         <MainText>
@@ -155,52 +158,3 @@ export const Card = (props) => {
         </GridContent>
     )
 }
-
-
-const ImputCardWrapper = styled.div`
-  margin: 1rem 0;
-  position: relative;
-  border: 1px solid ${colors.primary};
-  height: 50px;
-  width: 320px;
-  padding-left: 12px;
-  
-
-  & label {
-    position: relative;
-    top: 50%;
-    left: -50%;
-    pointer-events: none;
-    font-size: 18px;
-    color: #adadad;
-
-    & label:focus
-    & input {
-      color: #000;
-      border: none;
-
-      font-size: 16px;
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      bottom: 0;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-`
-
-const ImputTusk= styled.div`
-`
-const ImputProject = styled.div`
-`
-const ImputPriority = styled.div`
-`
-
-//
-// <ImputCardWrapper>
-//     <input id="tusk" name="inputTusk" type="text" placeholder=" "/>
-//     <label className="field-placeholder" htmlFor="tusk">Задача</label>
-// </ImputCardWrapper>

@@ -14,12 +14,12 @@ if (month < 10) {
 
 let hours = now.getHours();
 let minutes = now.getMinutes();
-let secinds = now.getSeconds();
+let seconds = now.getSeconds();
 let milliseconds = now.getMilliseconds();
 let todayIs = `${day}.${month}.${year}`;
 let nowIs = `${hours}:${minutes}`
-console.log(hours, minutes, secinds, milliseconds);
-export  const Timer = (props)=>{
+console.log(hours, minutes, seconds, milliseconds);
+export  const Timer = ()=>{
     return(
         <Flex flexDirection='column'><div><H3>{todayIs}</H3></div> <div><H3>{nowIs}</H3></div></Flex>
     )

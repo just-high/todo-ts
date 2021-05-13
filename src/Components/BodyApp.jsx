@@ -1,19 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import {
     GridCell,
     GridContent,
-    GridFullWidthSection
+
 } from "../ComponentsLib/Grid";
-import {H1, H2, H3, H4, H5, H6, P} from "../ComponentsLib/Typography";
 import {colors} from "../GlobalStuff";
 import styled, {css} from "styled-components";
 import {useSelector} from "react-redux";
-import {Flex} from "../ComponentsLib/Flex";
-import {Card, CardMain} from "../ComponentsLib/Card";
-import {todayIs} from "./Timer"
+
 import {Todo} from './Todo'
 import {MenuApp} from "./MenuApp";
-
 
 
 const BodyAppContent = styled(GridCell)`
@@ -21,16 +17,16 @@ const BodyAppContent = styled(GridCell)`
 
 
 const MenuAppWrapper = styled.div`
-  width: 0rem;
+  width: 0;
   transition: width 0.2s;
   box-shadow: 5px 5px 7px -3px rgba(0, 0, 0, 0.6);
   background: ${colors.darkV};
-  
-  ${props=>props.active && css`
+
+  ${props => props.active && css`
     width: 30rem;
     z-index: 9999;`}
 
-  
+
 `
 export const BodyApp = () => {
 
@@ -38,15 +34,15 @@ export const BodyApp = () => {
 
     return (
         <>
-                    <BodyAppContent>
-                        <GridContent gtcDef='minmax(0px, auto) 2.4rem 1fr' colGapDef='0rem' bgDef='yellow'>
-                            <MenuAppWrapper active={toggleMenuOpen} gcDef='1/span 1'>
-                                <MenuApp>
-                                </MenuApp>
-                            </MenuAppWrapper>
-                            <GridCell bgDef={colors.dark} gcDef='2/span 2'><GridContent><Todo/></GridContent></GridCell>
-                        </GridContent>
-                    </BodyAppContent>
+            <BodyAppContent>
+                <GridContent gtcDef='minmax(0px, auto) 2.4rem 1fr' colGapDef='0rem' bgDef='yellow'>
+                    <MenuAppWrapper active={toggleMenuOpen} gcDef='1/span 1'>
+                        <MenuApp>
+                        </MenuApp>
+                    </MenuAppWrapper>
+                    <GridCell bgDef={colors.dark} gcDef='2/span 2'><GridContent><Todo/></GridContent></GridCell>
+                </GridContent>
+            </BodyAppContent>
         </>
     )
     // return (

@@ -1,16 +1,18 @@
 import {layoutReducer} from "./layoutReducer";
 import {combineReducers} from "redux";
-import {todayReducer} from "./todayReducer";
+import {cardsReducer} from "./cardsReducer";
 import {inputReducer} from "./inputReducer";
 import {composeWithDevTools} from "redux-devtools-extension";
-import {projectReducer} from "./projectReducer";
+import {projectsReducer} from "./projectsReducer";
+import {categoriesReducer} from "./categoriesReducer";
 const {createStore} = require("redux");
 
 let rootReducer = combineReducers({
-    today: todayReducer,
+    cards: cardsReducer,
     layout: layoutReducer,
     input: inputReducer,
-    project: projectReducer,
+    projects: projectsReducer,
+    categories: categoriesReducer,
 })
 
 export const store = createStore(rootReducer,  composeWithDevTools())

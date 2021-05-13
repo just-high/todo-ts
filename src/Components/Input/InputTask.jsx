@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {addNewCardAction} from "../../redux/todayReducer";
+import {addNewCardAction} from "../../redux/cardsReducer";
 import {titleCreatorAction, typingTaskAction} from "../../redux/inputReducer";
 import {colors} from "../../GlobalStuff";
 
@@ -27,7 +27,7 @@ const InputTextTaskWrapper = styled.div`
     color: transparent;
   }
 `
-export const InputTask = (props) => {
+export const InputTask = () => {
     let dispatch = useDispatch()
     let newCard = useSelector(state => state.input.newCard)
     let textInTextarea = newCard.body
