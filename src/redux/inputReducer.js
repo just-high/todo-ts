@@ -2,11 +2,12 @@ const initialState = {
     newCard: {
         title: "",
         body: "",
-        priority: "",
+        priority: "high",
         flag: "active",
         project: "Choose a project",
-        id: 1,
-        category: "today"
+        id: Date.now(),
+        category: "today",
+        editorStateVisible: false,
     },
     radioPriority: {
         list: ["high", "mid", "low",],

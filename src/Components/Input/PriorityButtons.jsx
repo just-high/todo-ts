@@ -1,5 +1,5 @@
 import React from "react";
-import {PriorityButton} from "../../ComponentsLib/PriorityButton";
+import {PriorityButton} from "./PriorityButton";
 import {Flex} from "../../ComponentsLib/Flex";
 
 export const PriorityButtons = (props) => {

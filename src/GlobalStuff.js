@@ -99,3 +99,6 @@ export const colors = {
     whiteMint: "rgba(181, 255, 212, 1)",
 }
 
+export const getToUpperCase = (text) => {
+    return text[0].toUpperCase() + text.slice(1)
+}

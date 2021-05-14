@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import {H3} from "../Typography";
-import {BorderBottom} from "../../Components/Animation/borderBottom";
-import {changeActiveFilterAction} from "../../redux/layoutReducer";
-import {useDispatch} from "react-redux";
+import {H3} from "../../ComponentsLib/Typography";
+import {BorderBottom} from "../Animation/borderBottom";
+import {changeActiveFilterAndColorAction} from "../../redux/layoutReducer";
+import {useDispatch, useSelector} from "react-redux";
 
 const ProjectBody = styled.div`
   display: flex;
@@ -21,16 +21,17 @@ const ProjectName = styled.div`
 
 export const Project = (props) => {
     let projectsData = props.data
-    let color = projectsData.color()
+    let color = projectsData.color
+    console.log(projectsData)
     let dispatch = useDispatch()
     let changeActiveFilter = (ev) => {
-        dispatch(changeActiveFilterAction(ev.currentTarget.id))
+        dispatch(changeActiveFilterAndColorAction(ev.currentTarget.id, color))
     }
-
+    let activeFilter = useSelector(state => state.layout.activeFilter)
     return (
         <>
             <ProjectBody onClick={changeActiveFilter} id={projectsData.name}>
-                <BorderBottom color={color} margin="0.5rem">
+                <BorderBottom active={activeFilter===projectsData.name} color={color} margin="0.5rem">
                     <ProjectName>
                         <H3 color={color} margin="0 1rem">
                             {projectsData.name}

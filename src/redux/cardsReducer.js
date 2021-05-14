@@ -7,7 +7,8 @@ let initialState = {
             flag: "active",
             project: "Project1st",
             id: 1,
-            category: "today"
+            category: "today",
+            editorStateVisible: false,
         },
         {
             title: "today",
@@ -16,7 +17,8 @@ let initialState = {
             flag: "active",
             project: "Project2st",
             id: 2,
-            category: "today"
+            category: "today",
+            editorStateVisible: false,
         },
         {
             title: "today",
@@ -24,8 +26,9 @@ let initialState = {
             priority: "mid",
             flag: "active",
             project: "Project3st",
-            id: 2,
-            category: "today"
+            id: 3,
+            category: "today",
+            editorStateVisible: false,
         },
         {
             title: "today",
@@ -33,8 +36,9 @@ let initialState = {
             priority: "mid",
             flag: "active",
             project: "Project4st",
-            id: 2,
-            category: "today"
+            id: 4,
+            category: "today",
+            editorStateVisible: false,
         },
         {
             title: "plan",
@@ -42,8 +46,9 @@ let initialState = {
             priority: "high",
             flag: "active",
             project: "Project1st",
-            id: 1,
-            category: "plan"
+            id: 5,
+            category: "plan",
+            editorStateVisible: false,
         },
         {
             title: "plan",
@@ -51,8 +56,9 @@ let initialState = {
             priority: "mid",
             flag: "active",
             project: "Project2st",
-            id: 2,
-            category: "plan"
+            id: 6,
+            category: "plan",
+            editorStateVisible: false,
         },
         {
             title: "plan",
@@ -60,8 +66,9 @@ let initialState = {
             priority: "mid",
             flag: "active",
             project: "Project3st",
-            id: 2,
-            category: "plan"
+            id: 7,
+            category: "plan",
+            editorStateVisible: false,
         },
         {
             title: "plan",
@@ -69,8 +76,9 @@ let initialState = {
             priority: "mid",
             flag: "active",
             project: "Project4st",
-            id: 2,
-            category: "plan"
+            id: 8,
+            category: "plan",
+            editorStateVisible: false,
         },
     ]
 }
@@ -80,11 +88,47 @@ export const cardsReducer = (state = initialState, action) => {
             return {...state, toggleMenuOpen: !state.toggleMenuOpen}
         case "ADD_NEW_CARD":
             return {...state, cardsData: [...state.cardsData, action.newCard]}
+        case "OPEN_EDITOR": {
+            let changedCards = state.cardsData.map((el) => {
+                if (el.id === action.id) {
+                    el.editorStateVisible = true
+                    return el
+                } else {
+                    return el
+                }
+            })
+            return {...state, cardsData: changedCards}
+        }
+        case "CLOSE_EDITOR": {
+            let changedCards = state.cardsData.map((el) => {
+                el.editorStateVisible = false
+                return el
+            })
+            return {...state, cardsData: changedCards}
+        }
+        case "SAVE_CHANGES": {
+            let changedCards = state.cardsData.map((el) => {
+                if (el.id === action.id) {
+                   el = action.editingCard
+                    return el
+                } else {
+                    return el
+                }
+            })
+            return {...state, cardsData: changedCards}
+        }
         default:
             return {...state}
     }
 }
 
+
+export const saveChangesAction = (id, editingCard) => {
+    return {type: "SAVE_CHANGES", id: id, editingCard: editingCard}
+}
 export const addNewCardAction = (newCard) => {
     return {type: "ADD_NEW_CARD", newCard: newCard}
+}
+export const openEditorAction = (id) => {
+    return {type: "OPEN_EDITOR", id: id}
 }

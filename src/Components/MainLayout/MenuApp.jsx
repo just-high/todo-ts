@@ -2,16 +2,16 @@ import React from "react";
 
 import styled from "styled-components";
 import {useSelector} from "react-redux";
-import {colors} from "../GlobalStuff";
-import {GridContent} from "../ComponentsLib/Grid";
-import {Flex} from "../ComponentsLib/Flex";
-import {H1, H2} from "../ComponentsLib/Typography";
+import {colors} from "../../GlobalStuff";
+import {GridContent} from "../../ComponentsLib/Grid";
+import {Flex} from "../../ComponentsLib/Flex";
+import {H1, H2} from "../../ComponentsLib/Typography";
 import TimerTwoToneIcon from '@material-ui/icons/TimerTwoTone';
 import AlarmAddTwoToneIcon from '@material-ui/icons/AlarmAddTwoTone';
 import AlarmOnTwoToneIcon from '@material-ui/icons/AlarmOnTwoTone';
 import {TimerOffTwoTone} from "@material-ui/icons";
-import {Categories} from "../ComponentsLib/Categories/Categories";
-import {Projects} from "../ComponentsLib/Projects/Projects";
+import {Categories} from "../Categories/Categories";
+import {Projects} from "../Projects/Projects";
 
 
 const MenuWrapper = styled(GridContent)`

@@ -34,21 +34,33 @@ export const InputTask = () => {
     // ! Отправка по нажатию
     let onEnter = (ev) => {
         if (ev.key === 'Enter') {
-            dispatch(addNewCardAction(newCard))
-            ev.preventDefault();
-            dispatch(typingTaskAction(''))
-            dispatch(titleCreatorAction())
+            let invalidInput = ' ';
+            invalidInput = invalidInput.replace(/^\s+|\s+$/g, '')
+            if(newCard.body=== invalidInput){
+                alert('заполните поле')
+            } else {
+                dispatch(addNewCardAction(newCard))
+                ev.preventDefault();
+                dispatch(typingTaskAction(''))
+                dispatch(titleCreatorAction())
+            }
+
             console.log(newCard.title)
         }
     }
-
+    let onPressEnter = (ev) => {
+        if (ev.key === 'Enter') {
+            ev.preventDefault()
+        }
+    }
     let onChange = (ev) => {
         dispatch(typingTaskAction(ev.target.value))
         dispatch(titleCreatorAction())
     }
     return (
         <InputTextTaskWrapper>
-            <textarea placeholder=' ' onKeyPress={onEnter} onChange={onChange} value={textInTextarea}></textarea>
+            <textarea placeholder=' ' onKeyPress={onPressEnter} onKeyUp={onEnter} onChange={onChange}
+                      value={textInTextarea}></textarea>
             <label>ваша задача</label>
 
         </InputTextTaskWrapper>

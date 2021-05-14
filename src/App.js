@@ -5,14 +5,15 @@ import {GridFullWidthSection, Grid, GridCell, GridContent, GridCore} from "./Com
 import {useState} from "react";
 import {H1, H2, H3, H4, H5, P, H6} from "./ComponentsLib/Typography";
 import breakpointsMaxWidth from "./ComponentsLib/breakpoints";
-import NavApp from "./Components/NavApp";
-import {BodyApp} from "./Components/BodyApp";
-import MenuApp from "./Components/MenuApp";
+import NavApp from "./Components/MainLayout/NavApp";
+import {BodyApp} from "./Components/MainLayout/BodyApp";
+import MenuApp from "./Components/MainLayout/MenuApp";
 import {Flex} from "./ComponentsLib/Flex";
 import styled from "styled-components";
-import {PriorityButton} from "./ComponentsLib/PriorityButton";
+import {PriorityButton} from "./Components/Input/PriorityButton";
 import {PriorityButtons} from "./Components/Input/PriorityButtons";
 import {useSelector} from "react-redux";
+import {Editor} from "./Components/Editor/Editor";
 
 let {tablet, mobileL, mobileS} = breakpointsMaxWidth
 
@@ -29,7 +30,6 @@ function App() {
                 <AppGridContent>
                     <NavApp/>
                     <BodyApp/>
-
                 </AppGridContent>
             </Flex>
         </>
@@ -38,8 +38,4 @@ function App() {
 }
 
 export default App;
-// <GridCore heightDef="100vh">
-//     <NavApp/>
-//     <BodyApp/>
-//     <MenuApp/>
-// </GridCore>
+

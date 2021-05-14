@@ -3,8 +3,8 @@ import {
     GridCell,
     GridContent,
 
-} from "../ComponentsLib/Grid";
-import {colors} from "../GlobalStuff";
+} from "../../ComponentsLib/Grid";
+import {colors} from "../../GlobalStuff";
 import styled, {css} from "styled-components";
 import {useSelector} from "react-redux";
 

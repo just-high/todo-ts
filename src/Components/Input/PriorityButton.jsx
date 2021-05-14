@@ -1,9 +1,9 @@
 import React from "react";
 import styled, {css} from "styled-components";
-import {H3} from "./Typography";
-import {colors} from "../GlobalStuff";
+import {H3} from "../../ComponentsLib/Typography";
+import {colors} from "../../GlobalStuff";
 import {useDispatch, useSelector} from "react-redux";
-import { togglePriorityAction} from "../redux/inputReducer";
+import { togglePriorityAction} from "../../redux/inputReducer";
 
 
 const ButtonCore = styled.button`

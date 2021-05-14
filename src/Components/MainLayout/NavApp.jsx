@@ -1,10 +1,10 @@
 import React from "react";
-import {GridCell, GridContent} from "../ComponentsLib/Grid";
+import {GridCell, GridContent} from "../../ComponentsLib/Grid";
 import ListIcon from "@material-ui/icons/List";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {colors} from "../GlobalStuff";
-import {toggleMenuAction} from "../redux/layoutReducer";
+import {colors} from "../../GlobalStuff";
+import {toggleMenuAction} from "../../redux/layoutReducer";
 
 const Center = styled.div`
 display: flex;
