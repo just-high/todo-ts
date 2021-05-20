@@ -1,18 +1,21 @@
-import React from "react";
+import React, {FC} from "react";
 import styled, {css} from "styled-components";
 import {H3} from "../../ComponentsLib/Typography";
 import {colors} from "../../GlobalStuff";
-import {useDispatch, useSelector} from "react-redux";
-import { togglePriorityAction} from "../../redux/inputReducer";
+import {useDispatch} from "react-redux";
+import {useAppSelector} from "../../hooks";
+import {SELECT_PRIORITY} from "../../redux/inputSlice";
 
-
-const ButtonCore = styled.button`
+interface IPriorityButton{
+    id?:  string
+    active?: boolean
+}
+const ButtonCore = styled.button<IPriorityButton>`
   background: ${colors.darkV};
   box-shadow: 0.2rem 0.2rem 0.1rem 0.1rem rgba(34, 60, 80, 0.6);
   transform: scale(1);
   transition: all 0.1s;
 }
-
 & > div {
   display: flex;
   align-items: center;
@@ -29,35 +32,32 @@ const ButtonCore = styled.button`
   width: 2rem;
   height: 2rem;
 }
-
 & h3 {
   display: inline-block;
 }
-
 :hover {
   box-shadow: 0rem 0rem 0rem 0rem rgba(34, 60, 80, 0.6);
   transform: scale(0.99);
 }
-
 & h3:hover {
 }
-
 & > div > span:hover {
 }
-
 ${props => props.active && css`
   background: black`}
 `
-export const PriorityButton = (props) => {
+
+
+export const PriorityButton: FC<IPriorityButton> = ({id}) => {
     let dispatch = useDispatch()
-    let selected = useSelector(state => state.input.newCard.priority)
-    let selectPriority = (e) => {
-        dispatch(togglePriorityAction(e.currentTarget.id))
+    let selected = useAppSelector(state => state.input.priority)
+    let selectPriority = (e: React.MouseEvent<HTMLButtonElement>) => {
+        dispatch(SELECT_PRIORITY(e.currentTarget.id))
     }
-    return <ButtonCore id={props.children} onClick={selectPriority} active={selected === props.children}>
+    return <ButtonCore id={id} onClick={selectPriority} active={selected === id}>
         <div>
             <span></span>
-            <H3>{props.children}</H3>
+            <H3>{id}</H3>
         </div>
     </ButtonCore>
 }

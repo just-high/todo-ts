@@ -7,26 +7,29 @@ import {InputTask} from "./InputTask";
 import {PriorityButtons} from "./PriorityButtons";
 import {useSelector} from "react-redux";
 import {InputSelectProject} from "./InputSelectProject";
+import {useAppSelector} from "../../hooks";
 
 
 const InputCardWrapper = styled(GridContent)`
+  margin: 3rem 0;
+  background: ${props => props.color};
+`
+
+const InputCardContent = styled(GridCell)`
+  grid-column: 2/span 10;
 `
 export const InputCard = () => {
-    let onClick = (e) => {
-        console.log(e.currentTarget)
-    }
-    let data = useSelector(state => state.input.radioPriority.list)
+
     return (
-        <InputCardWrapper bgDef={colors.darkV} margin='3rem 0'>
-            <GridCell gcDef='2/span 10'>
+        <InputCardWrapper color={colors.darkV}>
+            <InputCardContent>
                 <Flex margin='2rem 0'>
-                    <InputTask addTask={() => {
-                    }}/>
-                    <PriorityButtons click={onClick} data={data}/>
+                    <InputTask/>
+                    <PriorityButtons/>
                     <InputSelectProject/>
                 </Flex>
 
-            </GridCell>
+            </InputCardContent>
         </InputCardWrapper>
     )
 }

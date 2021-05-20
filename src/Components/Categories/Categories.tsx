@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {Category} from "./Category";
+import Category from "./Category";
+import {useAppSelector} from "../../hooks";
 
 
 const CategoriesWrapper = styled.div`
@@ -8,9 +9,10 @@ const CategoriesWrapper = styled.div`
   flex-direction: column;
   align-self: center;
 `
-export const Categories = (props) => {
-    let categoriesItem = props.data.map(el=> <Category data={el}/>)
-    return(
+export const Categories = () => {
+    let categoriesData = useAppSelector(state => state.categories)
+    let categoriesItem = categoriesData.map(el => <Category data={el}/>)
+    return (
         <CategoriesWrapper>
             {categoriesItem}
         </CategoriesWrapper>
