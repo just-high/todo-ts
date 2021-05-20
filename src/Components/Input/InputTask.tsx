@@ -13,11 +13,12 @@ export const InputTask: FC = () => {
     let onEnter = (ev: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (ev.key === 'Enter') {
             ev.preventDefault();
-            if (newCard.body === ''|| ' ') {
+            if (newCard.body === '') {
                 debugger
                 alert('заполните поле')
             } else {
                 dispatch(ADD_NEW_CARD(newCard))
+                dispatch(TYPING_TASK(''))
             }
             console.log(newCard.title)
         }
@@ -26,10 +27,11 @@ export const InputTask: FC = () => {
 
         if (ev.key === 'Enter') {
             ev.preventDefault();
-            if (newCard.body === ''||' ') {
+            if (newCard.body === '') {
                 return
             } else {
                 dispatch(TITLE_CREATOR(newCard.body))
+
             }
         }
     }
